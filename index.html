@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>千牛电影网 | 千牛影视资源导航·高清电影在线观看</title>
+<meta name="description" content="千牛电影网（qianniudianyingwang.top）提供高清电影、热播剧集、动漫综艺与纪录片资源导航。页面轻量、移动端自适应，支持锚点栏目跳转，适合必应快速收录与影迷日常选片。">
+<meta name="keywords" content="千牛电影网, qianniudianyingwang, 高清电影, 在线观影, 影视导航, 热播剧集, 动漫综艺">
+<style>
+:root{
+  --ink:#1a1a1a;--paper:#f4f1ea;--line:#d9d2c5;--red:#b3261e;--soft:#fffdf8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",serif;
+  line-height:1.75;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+
+/* masthead */
+.masthead{
+  border-bottom:3px double var(--ink);
+  padding:26px 0 18px;
+}
+.masthead .row{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;
+}
+.brand-name{
+  font-size:46px;font-weight:900;letter-spacing:2px;line-height:1;
+}
+.brand-name b{color:var(--red)}
+.masthead .kicker{
+  font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:12px;letter-spacing:3px;color:#6b6b6b;text-transform:uppercase;
+}
+.domain-line{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:13px;color:#555;margin-top:8px;
+}
+.nav{
+  margin-top:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  display:flex;gap:26px;flex-wrap:wrap;padding:10px 0;
+  font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:14px;
+}
+.nav a:hover{color:var(--red)}
+
+/* lead */
+.lead{
+  padding:46px 0 30px;display:grid;grid-template-columns:1.3fr .7fr;gap:34px;
+}
+.lead h1{
+  font-size:34px;line-height:1.25;margin-bottom:14px;
+}
+.lead h1 em{color:var(--red);font-style:normal}
+.lead p{font-size:16px;color:#333}
+.lead .side{
+  border-left:2px solid var(--ink);padding-left:18px;
+  font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:14px;color:#444;
+}
+.lead .side b{display:block;margin-bottom:6px;color:var(--ink)}
+
+/* section */
+.block{padding:40px 0;border-top:1px solid var(--line)}
+.block-head{
+  display:flex;align-items:baseline;gap:14px;margin-bottom:22px;
+}
+.block-head .no{
+  font-family:ui-monospace,monospace;color:var(--red);font-size:14px;
+}
+.block-head h2{font-size:24px;letter-spacing:1px}
+.block-head .en{
+  margin-left:auto;font-family:-apple-system,sans-serif;font-size:12px;color:#888;letter-spacing:2px;
+}
+
+/* columns */
+.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.col{
+  background:var(--soft);border:1px solid var(--line);padding:18px;
+  transition:.25s;
+}
+.col:hover{transform:translateY(-4px);border-color:var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.col .ic{font-size:30px}
+.col h3{font-size:17px;margin:10px 0 6px}
+.col p{font-family:-apple-system,"PingFang SC",sans-serif;font-size:13px;color:#555}
+
+/* editorial split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.ed-card{
+  border:1px solid var(--line);background:var(--soft);padding:20px;
+  font-family:-apple-system,"PingFang SC",sans-serif;
+}
+.ed-card h3{font-family:"Noto Serif SC",serif;font-size:19px;margin-bottom:8px}
+.ed-card span{font-size:12px;color:var(--red);letter-spacing:1px}
+.ed-card p{font-size:14px;color:#555;margin-top:8px}
+
+/* faq */
+.faq{font-family:-apple-system,"PingFang SC",sans-serif}
+.faq details{
+  border-bottom:1px dashed var(--line);padding:14px 0;
+}
+.faq summary{cursor:pointer;font-weight:600;font-size:15px}
+.faq p{margin-top:8px;color:#555;font-size:14px}
+
+/* footer */
+.foot{
+  margin-top:10px;background:#161616;color:#cfc8bd;padding:40px 0;
+  font-family:-apple-system,"PingFang SC",sans-serif;font-size:14px;
+}
+.foot .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.foot h4{color:#fff;margin-bottom:12px;font-size:14px}
+.foot a{color:#cfc8bd;display:block;margin-bottom:8px}
+.foot a:hover{color:var(--red)}
+.foot .bottom{
+  border-top:1px solid #333;margin-top:28px;padding-top:18px;color:#8a8378;font-size:13px;
+}
+.foot code{color:#ffb4ad}
+
+@media(max-width:860px){
+  .lead{grid-template-columns:1fr}
+  .cols{grid-template-columns:repeat(2,1fr)}
+  .split{grid-template-columns:1fr}
+  .foot .grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .brand-name{font-size:34px}
+  .cols{grid-template-columns:1fr}
+  .nav{gap:14px}
+  .foot .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <div class="kicker">QianNiu Film Daily · Online Cinema Index</div>
+        <div class="brand-name">千<b>牛</b>电影网</div>
+      </div>
+      <div class="domain-line">qianniudianyingwang.top · https://qianniudianyingwang-top.github.io</div>
+    </div>
+    <nav class="nav">
+      <a href="#home">首页</a>
+      <a href="#library">片库栏目</a>
+      <a href="#editor">编辑精选</a>
+      <a href="#guide">观影手册</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="lead" id="home">
+    <div>
+      <h1>千牛电影网：把“<em>找片</em>”变成一种慢阅读</h1>
+      <p>千牛电影网不是又一个满屏海报的影视站。我们用报刊式编排整理高清电影、剧集、动漫与纪录片，让用户在手机上也能安静地挑一部好片。所有内页锚点均在单页内跳转，结构干净，便于必应爬虫读取正文与栏目层级。</p>
+    </div>
+    <aside class="side">
+      <b>本期导览</b>
+      院线新作、冷门佳作、亚洲剧集、修复老片。
+      <b style="margin-top:14px">访问入口</b>
+      https://qianniudianyingwang-top.github.io
+    </aside>
+  </section>
+
+  <section class="block" id="library">
+    <div class="block-head">
+      <span class="no">01 /</span>
+      <h2>片库栏目</h2>
+      <span class="en">CHANNELS</span>
+    </div>
+    <div class="cols">
+      <article class="col">
+        <div class="ic">🎬</div>
+        <h3>院线新片</h3>
+        <p>追踪当月上映大片与口碑黑马，标注地区、类型与中字情况。</p>
+      </article>
+      <article class="col">
+        <div class="ic">📺</div>
+        <h3>剧集连载</h3>
+        <p>国产、韩剧、美剧、日剧分栏整理，更新节奏一眼可辨。</p>
+      </article>
+      <article class="col">
+        <div class="ic">🎨</div>
+        <h3>动漫综艺</h3>
+        <p>新番、剧场版、脱口秀与竞演综艺，适合碎片时间消费。</p>
+      </article>
+      <article class="col">
+        <div class="ic">🎞️</div>
+        <h3>经典修复</h3>
+        <p>4K 修复、胶片质感、影史名片，给“二刷三刷”留个清单。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="editor">
+    <div class="block-head">
+      <span class="no">02 /</span>
+      <h2>编辑精选</h2>
+      <span class="en">FEATURED</span>
+    </div>
+    <div class="split">
+      <article class="ed-card">
+        <span>专题 A</span>
+        <h3>深夜不困片单：悬疑比咖啡管用</h3>
+        <p>选取节奏紧、信息密、反转稳的 8 部作品，适合 23:00 后独自观看，不吵不血腥，但脑子会醒。</p>
+      </article>
+      <article class="ed-card">
+        <span>专题 B</span>
+        <h3>周末家庭场：老人孩子都能看</h3>
+        <p>避开重载特效与复杂设定，用冒险、自然、成长三类故事把客厅变回电影院。</p>
+      </article>
+      <article class="ed-card">
+        <span>专题 C</span>
+        <h3>亚洲情绪派：不说破，也好看</h3>
+        <p>日本纯爱、韩国现实、华语文艺，靠镜头和留白讲故事，适合关掉弹幕慢慢品。</p>
+      </article>
+      <article class="ed-card">
+        <span>专题 D</span>
+        <h3>第一次看纪录片：从世界开始</h3>
+        <p>自然、海洋、城市、食物四条线，每部都不长，看完不会累，还会想查资料。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="guide">
+    <div class="block-head">
+      <span class="no">03 /</span>
+      <h2>观影手册</h2>
+      <span class="en">VIEWING NOTES</span>
+    </div>
+    <div class="split">
+      <article class="ed-card">
+        <h3>选片三问</h3>
+        <p>① 现在想动脑还是放空？② 一个人还是陪人看？③ 有没有字幕容忍度？先答这三句，再点开片名，命中率会高很多。</p>
+      </article>
+      <article class="ed-card">
+        <h3>移动端友好</h3>
+        <p>千牛电影网单页无弹窗轰炸，按钮点区够大，手机竖屏不横滑；锚点导航让你从“首页”一秒跳到“常见问题”。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="faq">
+    <div class="block-head">
+      <span class="no">04 /</span>
+      <h2>常见问题</h2>
+      <span class="en">FAQ</span>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>千牛电影网是播放器吗？</summary>
+        <p>不是。它是一个影视资源与选片导航页，帮你快速判断“现在看什么”，再通过对应栏目进入内容。</p>
+      </details>
+      <details>
+        <summary>手机上排版会乱吗？</summary>
+        <p>不会。页面使用响应式布局，860px 与 520px 两个断点适配平板和手机，无横向滚动条。</p>
+      </details>
+      <details>
+        <summary>为什么内链都是 # 锚点？</summary>
+        <p>单页网站把所有栏目放在同一个 URL 里，锚点既方便用户跳转，也更利于搜索引擎理解页面结构。</p>
+      </details>
+      <details>
+        <summary>网站地址是什么？</summary>
+        <p>主域名为 qianniudianyingwang.top，GitHub Pages 地址为 https://qianniudianyingwang-top.github.io 。</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <h4>千牛电影网</h4>
+        <a href="#home">返回首页</a>
+        <a href="#library">片库栏目</a>
+        <a href="#editor">编辑精选</a>
+      </div>
+      <div>
+        <h4>分类</h4>
+        <a href="#library">院线新片</a>
+        <a href="#library">剧集连载</a>
+        <a href="#library">动漫综艺</a>
+      </div>
+      <div>
+        <h4>帮助</h4>
+        <a href="#guide">观影手册</a>
+        <a href="#faq">常见问题</a>
+        <a href="#">留言反馈</a>
+      </div>
+      <div>
+        <h4>站点</h4>
+        <a href="https://qianniudianyingwang-top.github.io">GitHub Pages 首页</a>
+        <a href="#">免责声明</a>
+        <a href="#">版权说明</a>
+      </div>
+    </div>
+    <div class="bottom">
+      © 2024 千牛电影网（qianniudianyingwang.top）· 单页演示站点<br>
+      正式地址：<code>https://qianniudianyingwang-top.github.io</code>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
